@@ -2,7 +2,7 @@
 
 **Yelp** is a Yelp search app using the [Yelp API](http://www.yelp.com/developers/documentation/v2/search_api).
 
-Time spent: **5** hours spent in total
+Time spent: **6** hours spent in total
 
 ## User Stories
 
@@ -32,7 +32,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src=http://i.imgur.com/X02q6qh.gif title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -40,7 +40,8 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 Describe any challenges encountered while building the app.
 
-I had some issues with getting the constraints and display correct. My name label for the restaurant kept truncating too early and I did not understand why, since I followed the walkthrough video exactly. I kept rewatching it and following my code but nothing worked. I decided to comment out the code where we change the name label preferred max width and then it worked.
+I had some issues with getting the constraints and display correct. My name label for the restaurant kept truncating too early and I did not understand why, since I followed the walkthrough video exactly. I kept rewatching it and following my code but nothing worked. I decided to comment out the code where we change the name label preferred max width and then it worked. I had trouble getting the search results to appear, since the code for searching was different from how we did it before. I kept looking at the different swift files then realized it was a lot simpler than I thought it was supposed to be.
+
 ## License
 
 Copyright 2017 Richard Du
