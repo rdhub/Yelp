@@ -8,17 +8,19 @@
 
 import UIKit
 
-class BusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
+class BusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UISearchBarDelegate {
     
     var isMoreDataLoading = false
     var loadingMoreView: InfiniteScrollActivityView?
     
+    var searchText : String!
     var businesses: [Business]!
     var searchBar = UISearchBar()
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        searchText = ""
         // Set up Infinite Scroll loading indicator
         let frame = CGRect(x: 0, y: tableView.contentSize.height, width: tableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
         loadingMoreView = InfiniteScrollActivityView(frame: frame)
@@ -33,7 +35,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
-        Business.searchWithTerm(term: "Thai", completion: { (businesses: [Business]?, error: Error?) -> Void in
+        Business.searchWithTerm(term: "asianfusion", completion: { (businesses: [Business]?, error: Error?) -> Void in
             
             self.businesses = businesses
             self.tableView.reloadData()
@@ -51,7 +53,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         // able to drag one onto the navigation bar
         searchBar.sizeToFit()
         searchBar.placeholder = "Restaurants"
-        
+        searchBar.delegate = self
         
         // the UIViewController comes with a navigationItem property
         // this will automatically be initialized for you if when the
@@ -119,7 +121,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     
     func loadMoreData() {
         
-        Business.searchWithTerm(term: "Thai", completion: { (businesses: [Business]?, error: Error?) -> Void in
+        Business.searchWithTerm(term: searchText, completion: { (businesses: [Business]?, error: Error?) -> Void in
             
             self.businesses = businesses
             // Update flag
@@ -141,6 +143,28 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         
     
     }
+    // called when keyboard search button pressed
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+        self.searchText = searchBar.text!
+        Business.searchWithTerm(term: searchText, completion: { (businesses: [Business]?, error: Error?) -> Void in
+            
+            self.businesses = businesses
+            
+            
+            self.tableView.reloadData()
+            if let businesses = businesses {
+                for business in businesses {
+                    print(business.name!)
+                    print(business.address!)
+                }
+            }
+            
+        }
+        )
+        view.endEditing(true)
+    }
+    
     /*
      // MARK: - Navigation
      
