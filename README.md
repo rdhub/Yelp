@@ -40,6 +40,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 Describe any challenges encountered while building the app.
 
+I had some issues with getting the constraints and display correct. My name label for the restaurant kept truncating too early and I did not understand why, since I followed the walkthrough video exactly. I kept rewatching it and following my code but nothing worked. I decided to comment out the code where we change the name label preferred max width and then it worked.
 ## License
 
 Copyright 2017 Richard Du
