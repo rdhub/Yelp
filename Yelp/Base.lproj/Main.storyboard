@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Yelp-->
+        <!--SearchBar-->
         <scene sceneID="5L9-Uz-lNK">
             <objects>
                 <viewController id="2xI-yr-O5N" customClass="BusinessesViewController" customModule="Yelp" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,11 +19,11 @@
                         <viewControllerLayoutGuide type="bottom" id="VBY-gq-v8E"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XhR-oz-92f">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="138" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xC8-Os-xCM">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusinessCell" rowHeight="138" id="zbb-2h-36U" customClass="BusinessCell" customModule="Yelp" customModuleProvider="target">
@@ -128,7 +128,7 @@
                             <constraint firstItem="xC8-Os-xCM" firstAttribute="leading" secondItem="XhR-oz-92f" secondAttribute="leading" id="qzM-Ez-nlY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Yelp" id="6xw-dq-XQA"/>
+                    <navigationItem key="navigationItem" title="SearchBar" id="6xw-dq-XQA"/>
                     <connections>
                         <outlet property="tableView" destination="xC8-Os-xCM" id="dzJ-qS-C7c"/>
                     </connections>
@@ -142,9 +142,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PXO-1i-de3" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4wd-kJ-XVc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="4wd-kJ-XVc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.76862745098039209" green="0.070588235294117646" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
