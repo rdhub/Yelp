@@ -15,8 +15,6 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     
     var searchText : String!
     var businesses: [Business]!
-    var filteredBusinesses: [Business]!
-    
     var searchBar = UISearchBar()
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -40,7 +38,6 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         Business.searchWithTerm(term: "asianfusion", completion: { (businesses: [Business]?, error: Error?) -> Void in
             
             self.businesses = businesses
-            self.filteredBusinesses = businesses
             self.tableView.reloadData()
             if let businesses = businesses {
                 for business in businesses {
@@ -84,8 +81,8 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if filteredBusinesses != nil {
-            return filteredBusinesses!.count
+        if businesses != nil {
+            return businesses!.count
         } else {
             return 0
         }
@@ -95,7 +92,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessCell", for: indexPath) as! BusinessCell
         
-        cell.business = filteredBusinesses[indexPath.row]
+        cell.business = businesses[indexPath.row]
         
         return cell
     }
@@ -124,14 +121,9 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     
     func loadMoreData() {
         
-        Business.searchWithTerm(term: searchText, offset: self.businesses?.count, limit: nil, completion: { (businesses: [Business]?, error: Error?) -> Void in
+        Business.searchWithTerm(term: searchText, completion: { (businesses: [Business]?, error: Error?) -> Void in
             
-            if let newData = businesses {
-                
-            
-            self.businesses.append(contentsOf: newData)
-            self.filteredBusinesses = businesses
-            }
+            self.businesses = businesses
             // Update flag
             self.isMoreDataLoading = false
             
@@ -139,7 +131,12 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
             self.loadingMoreView!.stopAnimating()
             
             self.tableView.reloadData()
-            
+            if let businesses = businesses {
+                for business in businesses {
+                    print(business.name!)
+                    print(business.address!)
+                }
+            }
             
         }
         )
@@ -152,7 +149,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         self.searchText = searchBar.text!
         Business.searchWithTerm(term: searchText, completion: { (businesses: [Business]?, error: Error?) -> Void in
             
-            self.filteredBusinesses = businesses
+            self.businesses = businesses
             
             
             self.tableView.reloadData()

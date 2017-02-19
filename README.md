@@ -2,7 +2,7 @@
 
 **Yelp** is a Yelp search app using the [Yelp API](http://www.yelp.com/developers/documentation/v2/search_api).
 
-Time spent: **8** hours spent in total
+Time spent: **7** hours spent in total
 
 ## User Stories
 
@@ -40,7 +40,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 Describe any challenges encountered while building the app.
 
-I had some issues with getting the constraints and display correct. My name label for the restaurant kept truncating too early and I did not understand why, since I followed the walkthrough video exactly. I kept rewatching it and following my code but nothing worked. I decided to comment out the code where we change the name label preferred max width and then it worked. I had trouble getting the search results to appear, since the code for searching was different from how we did it before. I kept looking at the different swift files then realized it was a lot simpler than I thought it was supposed to be. I am having issues trying to add additional restaurants to the list using the offset from the Yelp api, but I am getting an ambiguous reference error.
+I had some issues with getting the constraints and display correct. My name label for the restaurant kept truncating too early and I did not understand why, since I followed the walkthrough video exactly. I kept rewatching it and following my code but nothing worked. I decided to comment out the code where we change the name label preferred max width and then it worked. I had trouble getting the search results to appear, since the code for searching was different from how we did it before. I kept looking at the different swift files then realized it was a lot simpler than I thought it was supposed to be.
 
 ## License
 
